@@ -1,3 +1,4 @@
+#load libraries
 library(stringr)
 library(dplyr)
 library(data.table)
@@ -55,3 +56,6 @@ allData2 = allData %>%
     group_by(Activity, SubjectID) %>%
     summarise_all(mean) %>%
     arrange(ActivityID)
+
+#save the dataset
+write.table(allData2, file = 'tidyData.txt', sep = '\t')
