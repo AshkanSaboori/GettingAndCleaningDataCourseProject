@@ -44,7 +44,7 @@ colNames = sapply(colNames, function(x){
     x = str_replace_all(x, 'Acc', 'Acceleration')
     x = str_replace_all(x, 'Mag', 'Magnitude')
     x = str_replace_all(x, '^t', 'Time-')
-    x = str_replace_all(x, '^f', 'Fourier-')
+    x = str_replace_all(x, '^f', 'Freq-')
     return(x)
 })
 names(colNames) = NULL
