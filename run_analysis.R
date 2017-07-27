@@ -3,7 +3,7 @@ library(stringr)
 library(dplyr)
 library(data.table)
 
-#read the data####
+#read the data
 #general info
 features = fread('./UCI HAR Dataset/features.txt', col.names = c('index', 'feature'))
 activityLabels = fread('./UCI HAR Dataset/activity_labels.txt', 
@@ -58,4 +58,4 @@ allData2 = allData %>%
     arrange(ActivityID)
 
 #save the dataset
-write.table(allData2, file = 'tidyData.txt', sep = '\t')
+write.table(allData2, file = 'tidyData.txt', sep = '\t', row.name = FALSE)
