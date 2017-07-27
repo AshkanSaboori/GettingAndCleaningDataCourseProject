@@ -6,27 +6,62 @@ The experiments have been carried out with a group of 30 volunteers within an ag
 
 The sensor signals (accelerometer and gyroscope) were pre-processed by applying noise filters and then sampled in fixed-width sliding windows of 2.56 sec and 50% overlap (128 readings/window). The sensor acceleration signal, which has gravitational and body motion components, was separated using a Butterworth low-pass filter into body acceleration and gravity. The gravitational force is assumed to have only low frequency components, therefore a filter with 0.3 Hz cutoff frequency was used. From each window, a vector of features was obtained by calculating variables from the time and frequency domain. See 'features_info.txt' for more details. 
 
-## Final Dataset
-The final set is called **tidyData.txt** and includes the following columns:
-- **Activity:** the activity that the subject was performing such as:
-    - Walking
-    - Walking upstairs
-    - Walking downstairs
-    - Sitting
-    - Standing
-    - Laying
+For each record it is provided:
 
-- **SubjectID:** ID of the participant. Its range is from 1 to 30 corresponding to 30
-participants.
+- Triaxial acceleration from the accelerometer (total acceleration) and the estimated
+body acceleration.
+- Triaxial Angular velocity from the gyroscope.
+- A 561-feature vector with time and frequency domain variables.
+- Its activity label.
+- An identifier of the subject who carried out the experiment.
 
-- **ActivityID:** ID of the activity corresponding to the activites mentioned above.
+The data set includes the following files:
 
-- **Mean and Standard Deviation of Variabls:** 79 columns containing the mean and 
-standard deviation of variables collected in this study. The list of the variables
-could be found in the **features.txt** file.
+- 'README.txt'
+- 'features_info.txt': Shows information about the variables used on the feature vector.
+- 'features.txt': List of all features.
+- 'activity_labels.txt': Links the class labels with their activity name.
+- 'train/X_train.txt': Training set.
+- 'train/y_train.txt': Training labels.
+- 'test/X_test.txt': Test set.
+- 'test/y_test.txt': Test labels.
 
-The features selected for this dataset come from the accelerometer and gyroscope 3-axial raw signals Time-Acceleration-XYZ and Time-Gyro-XYZ. These time domain signals (prefix 'Time' to denote time) were captured at a constant rate of 50 Hz. Then they were filtered using a median filter and a 3rd order low pass Butterworth filter with a corner frequency of 20 Hz to remove noise. Similarly, the acceleration signal was then separated into body and gravity acceleration signals (Time-BodyAcceleration-XYZ and Time-GravityAccleration-XYZ) using another low pass Butterworth filter with a corner frequency of 0.3 Hz. 
+## Project Steps
+The following steps have been performed in order to obtain the final and tidy data
+set. The final data set has been uploaded to the repository as a text file called
+**tidyData.txt**. 
 
-Subsequently, the body linear acceleration and angular velocity were derived in time to obtain Jerk signals (TimeBodyAccJerk-XYZ and Time-BodyGyroJerk-XYZ). Also the magnitude of these three-dimensional signals were calculated using the Euclidean norm (Time-BodyAccelerationMagnitude, Time-GravityAccMag, Time-BodyAccelerationJerkMagnitude, Time-BodyGyroMagnitude, Time-BodyGyroJerkMagnitude). 
+### Step-1: Download and unzip the dataset
+Download the unzip the original dataset files. These files were available as a 
+zipped folder [here](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones).
 
-Finally a Fast Fourier Transform (FFT) was applied to some of these signals producing Freq-BodyAcceleration-XYZ, Freq-BodyAccelerationJerk-XYZ, Freq-BodyGyro-XYZ, Freq-BodyAccelerationJerkMag, Freq-BodyGyroMagnitude, Freq-BodyGyroJerkMagnitude. (Note the 'Freq' to indicate frequency domain signals).
+### Step-2: Merge the training and test datasets
+After downloading and saving the files into the local directory, the following files
+were read into R and created corresponding variables.
+
+- features.txt
+- activity_labels.txt
+- subject_train.txt
+- x_train.txt
+- y_train.txt
+- subject_test.txt
+- x_test.txt
+- y_test.txt
+
+### Step-3: Extracts the mean and standard deviation for each measurement
+This step has been carried out using regular expressions. Package `stringr` was used
+to perform the text mining. All the column names
+containing the two words **mean** and **std** were extracted.
+
+### Step-4: Use descriptive activity names to name the activities in the data set
+The dataset made in the previous step was merged with **activity_labels** data frame
+to add descriptive activity names to the dataset. **activity_labels.txt** file
+contained the descriptive activity name for each activity id availabe in the dataset.
+
+### Step-4: Label the data set with descriptive variable names
+In this step, regular expressions were used to change some abbreviations to the full
+descriptive names and to remove the paranthesis.
+
+### Step-5: Create a second, independent tidy data set with the average of each variable for each activity and each subject
+Package `dplyr` was used to aggregate the dataset in this step. The final dataset
+contained 30 rows correponding to 30 participants in this study.
