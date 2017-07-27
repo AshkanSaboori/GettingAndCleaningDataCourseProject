@@ -28,3 +28,6 @@ be found in this repository.
 Additional information on the dataset and how the data cleaning was performed are
 brought in the codebook file available in this repository. Also, the final and tidy
 dataset is provided as **tidyData.txt** in the repository.
+
+**A short description on the project steps and R code has been provided in the 
+codebook file**.
