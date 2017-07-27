@@ -58,10 +58,10 @@ The dataset made in the previous step was merged with **activity_labels** data f
 to add descriptive activity names to the dataset. **activity_labels.txt** file
 contained the descriptive activity name for each activity id availabe in the dataset.
 
-### Step-4: Label the data set with descriptive variable names
+### Step-5: Label the data set with descriptive variable names
 In this step, regular expressions were used to change some abbreviations to the full
 descriptive names and to remove the paranthesis.
 
-### Step-5: Create a second, independent tidy data set with the average of each variable for each activity and each subject
+### Step-6: Create a second, independent tidy data set with the average of each variable for each activity and each subject
 Package `dplyr` was used to aggregate the dataset in this step. The final dataset
 contained 30 rows correponding to 30 participants in this study.
