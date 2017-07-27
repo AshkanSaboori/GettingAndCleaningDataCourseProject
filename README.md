@@ -10,4 +10,4 @@ Companies like **Fitbit**, **Nike**, and **Jawbone Up** are racing to develop th
 most advanced algorithms to attract new users. The dataset used is this project
 is relavant to this field and have been collected from the accelerometers for the 
 Samsung Galaxy S smartphone. A full discription of the data can be found 
-<a href = "http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones">[here].
+<a href = "http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones">here.
