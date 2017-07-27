@@ -3,7 +3,7 @@
 ### Discription
 This project was part of the Johns Hopking data science class project. The purpose 
 of this project was to collect and clean the data. The dataset contained 
-multiple text file provided as a zipped folder.
+multiple text files provided as a zipped folder.
 
 One of the most exciting areas in all of data science right now is wearable computing. 
 Companies like **Fitbit**, **Nike**, and **Jawbone Up** are racing to develop the 
@@ -26,4 +26,5 @@ These steps are provided in the R script file called **run-analysis.R** and can
 be found in this repository.
 
 Additional information on the dataset and how the data cleaning was performed are
-brought in the codebook file available in this repository.
+brought in the codebook file available in this repository. Also, the final and tidy
+dataset is provided as **tidyData.txt** in the repository.
